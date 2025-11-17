@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" rel="stylesheet">
+    <script src="formulario.js" defer></script>
+    <title>Formulario Pablo</title>
+</head>
+<body>
+    <h1>Ficha de inscripción al Circuito</h1>
+    <input id='nombre' type="text" value="Pablo"><br>
+    <input id='apellido' type="text" value="Cavero"><br>
+    <input id='edad' type="text" value="23"><br>
+    <select id="categoria">
+        <option value="principiante">Principiante</option>
+        <option value="intermedio">Intermedio</option>
+        <option value="experto">Experto</option>
+    </select>
+    <br>
+
+    <input type="color" id="colorFondo" value="#ffffff">
+
+    <br>
+
+    <h3>Elige tus compuestos para la carrera</h3>
+    <select id="categoriaRueda">
+        <option value="soft">Soft</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+    </select>
+    <div id="imagenRueda" style="margin-top: 10px;">
+    <img id="rueda" src="" alt="Imagen de rueda" style="max-width:200px;">
+    </div>
+
+    <input type="button" value="Vuelca Datos" onclick="muestraDatos()">
+    <div id="uno" class="contenedor_ppal"></div>
+</body>
+</html>

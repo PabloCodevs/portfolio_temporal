@@ -1,0 +1,64 @@
+body {
+  background-image: url("fondo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.div1{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 500px;
+    top: 600px;
+    background-image: url("pelota.webp");
+    background-size: cover;
+    background-position: center;
+    transition: all 2s ease;
+}
+.div2{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 500px;
+    top: 600px;
+    background-image: url("pelota.webp");
+    background-size: cover;
+    background-position: center;
+    transition: all 2s ease;
+}
+.div3{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 500px;
+    top: 600px;
+    background-image: url("pelota.webp");
+    background-size: cover;
+    background-position: center;
+    transition: all 2s ease;
+}
+.div4{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 500px;
+    top: 600px;
+    background-image: url("pelota.webp");
+    background-size: cover;
+    background-position: center;
+    transition: all 2s ease;
+}
+.div5{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 500px;
+    top: 600px;
+    background-image: url("pelota.webp");
+    background-size: cover;
+    background-position: center;
+    transition: all 2s ease;
+}
+
+input[type="range"] {
+  width: 200px;
+}

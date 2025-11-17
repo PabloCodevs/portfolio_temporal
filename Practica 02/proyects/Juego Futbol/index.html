@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Mover Div</title>
+    <script src="main.js" defer></script>
+</head>
+<body>
+<form>
+    <label for="izq">Izquierda:</label>
+    <input type="number" id="izq">
+    <label for="arriba">Arriba:</label>
+    <input type="number" id="arriba">
+    <br><br>
+    <label for="velocidad">Potencia: Max</label>
+    <input type="range" id="velocidad" min="0.2" max="5" step="0.1" value="2">
+    <span id="valorVel">Min</span>
+    <br><br>
+</form>
+<div>
+    <button type="button" onclick="moverDiv()">Mover Div</button>
+</div>
+
+<div class="div1" id="uno"></div>
+<div class="div2" id="dos"></div>
+<div class="div3" id="tres"></div>
+<div class="div4" id="cuatro"></div>
+<div class="div5" id="cinco"></div>
+
+</body>
+</html>

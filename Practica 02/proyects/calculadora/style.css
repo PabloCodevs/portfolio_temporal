@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    transition: background-color 0.5s ease;
+    background-color: #e2e1e1;
+}
+
+.calculadora {
+    display: inline-block;
+    margin-top: 50;
+    width: 300px;
+    padding: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.fila {
+    margin: 10px 0;
+}
+
+input {
+    padding: 5px;
+    width: 100px;
+}
+
+.resultado span {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    font-size: 1em;
+    background-color: #4caf50;
+    border: 0px solid #730e0e;
+    color: white;
+    border-radius: 5px;
+}
+
+.log ul {
+    list-style: none;
+    padding: 0;
+}
+
+.log li {
+    margin: 3px 0;
+}
