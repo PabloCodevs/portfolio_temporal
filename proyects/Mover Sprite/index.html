@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juego muevedidv</title>
+<style>
+    #campo {
+        width: 400px;
+        height: 300px;
+        border: 2px solid black;
+        position: relative;
+        margin: 20px auto;
+    }
+
+    #miDiv {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-color: lightblue;
+    }
+
+    button {
+        margin: 5px;
+        padding: 5px 10px;
+    }
+
+    #obstaculo {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 100px;
+        left: 150px;
+        background-color: red;
+    }
+</style>
+</head>
+<body>
+
+<div id="campo">
+    <div id="miDiv"></div>
+    <div id="obstaculo"></div>
+</div>
+
+<!--
+<button onclick="moverArriba()">Arriba</button>
+<button onclick="moverAbajo()">Abajo</button>
+<button onclick="moverIzquierda()">Izquierda</button>
+<button onclick="moverDerecha()">Derecha</button>
+<button onclick="volver()">Volver</button>
+-->
+
+<script>
+const miDiv = document.getElementById("miDiv");
+const campo = document.getElementById("campo");
+const obstaculo = document.getElementById("obstaculo");
+
+const paso = 20;
+
+// Inicializo top y left para que tengan un valor por defecto
+miDiv.style.top = "0px";
+miDiv.style.left = "0px";
+
+
+function comprobarColision() {
+    let divTop = parseInt(miDiv.style.top);
+    let divLeft = parseInt(miDiv.style.left);
+    let divWidth = miDiv.clientWidth;
+    let divHeight = miDiv.clientHeight;
+
+    let obsTop = parseInt(obstaculo.style.top);
+    let obsLeft = parseInt(obstaculo.style.left);
+    let obsWidth = obstaculo.clientWidth;
+    let obsHeight = obstaculo.clientHeight;
+
+    if (
+        divLeft < obsLeft + obsWidth &&
+        divLeft + divWidth > obsLeft &&
+        divTop < obsTop + obsHeight &&
+        divTop + divHeight > obsTop
+    ) {
+        alert("¡Perdiste!");
+        volver();
+    }
+}
+
+
+/*
+function comprobarColision() {
+    const divTop = miDiv.offsetTop;
+    const divLeft = miDiv.offsetLeft;
+    const divWidth = miDiv.offsetWidth;
+    const divHeight = miDiv.offsetHeight;
+
+    const obsTop = obstaculo.offsetTop;
+    const obsLeft = obstaculo.offsetLeft;
+    const obsWidth = obstaculo.offsetWidth;
+    const obsHeight = obstaculo.offsetHeight;
+
+    if (
+        divLeft < obsLeft + obsWidth &&
+        divLeft + divWidth > obsLeft &&
+        divTop < obsTop + obsHeight &&
+        divTop + divHeight > obsTop
+    ) {
+        alert("¡Perdiste!");
+        volver();
+    }
+}
+*/
+
+function moverArriba() {
+    let top = parseInt(miDiv.style.top);
+    if(top - paso < 0) {
+        alert("¡Perdiste!");
+        return;
+    }
+    miDiv.style.top = (top - paso) + "px";
+    comprobarColision();
+
+}
+
+function moverAbajo() {
+    let top = parseInt(miDiv.style.top);
+    const maxTop = campo.clientHeight - miDiv.clientHeight;
+    if(top + paso > maxTop) {
+        alert("¡Perdiste!");
+        return;
+    }
+    miDiv.style.top = (top + paso) + "px";
+    comprobarColision();
+}
+
+function moverIzquierda() {
+    let left = parseInt(miDiv.style.left);
+    if(left - paso < 0) {
+        alert("¡Perdiste!");
+        return;
+    }
+    miDiv.style.left = (left - paso) + "px";
+    comprobarColision();
+}
+
+function moverDerecha() {
+    let left = parseInt(miDiv.style.left);
+    const maxLeft = campo.clientWidth - miDiv.clientWidth;
+    if(left + paso > maxLeft) {
+        alert("¡Perdiste!");
+        return;
+    }
+    miDiv.style.left = (left + paso) + "px";
+    comprobarColision();
+}
+
+function volver() {
+    miDiv.style.top = "0px";
+    miDiv.style.left = "0px";
+}
+
+document.addEventListener('keydown', function(event) {
+    switch(event.key) {
+        case 'ArrowUp': moverArriba(); break;
+        case 'ArrowDown': moverAbajo(); break;
+        case 'ArrowLeft': moverIzquierda(); break;
+        case 'ArrowRight': moverDerecha(); break;
+    }
+});
+</script>
+
+</body>
+</html>

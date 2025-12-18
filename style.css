@@ -9,16 +9,24 @@
 }
 
 html {
-    background-color: #ecf9ff;
+    min-height: 100%;
 }
 
 body {
-    color: #272727;
+    /* 1. Definimos el gradiente (de Negro a Púrpura Profundo) */
+    background: linear-gradient(180deg, #000000 0%, #1c133a 50%, #4c379d 100%);
+    background-attachment: fixed; /* Esto evita que el fondo se repita al hacer scroll */
+
+    /* 2. Cambiamos el color de la fuente a blanco para que sea legible */
+    color: #ffffff; 
+    
+    /* 3. Mantenemos tus estilos de fuente */
     font-family: 'Quicksand', serif;
     font-style: normal;
     font-weight: 400;
     letter-spacing: 0;
     padding: 1rem;
+    margin: 0;
 }
 
 a {

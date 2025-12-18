@@ -1,0 +1,78 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #222;
+    font-family: Arial, sans-serif;
+}
+
+.padre {
+    width: 800px;
+    height: 500px;
+    background-image: url("images/fondo.png");
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #888;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.teclas {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 25px;
+}
+
+.teclaA, .teclaD, .teclaS, .teclaW{ 
+    width: 60px;
+    height: 60px;
+    background-color: #f0f0f070;
+    border: 2px solid #c1b9b9;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+.llamada {
+    width: 320px;;
+    height: 60px;
+    background-color: #f0f0f070;
+    border: 2px solid #c1b9b9;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+.coordenadas {
+    font-size: 18px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+p{
+    color: white;
+}
+
+.title{
+    color: white;
+    margin-bottom: 0;
+}
