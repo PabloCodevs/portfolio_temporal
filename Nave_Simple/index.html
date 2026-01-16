@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nave Simple - Actividad 20</title>
+<style>
+    body {
+        margin: 0; padding: 0;
+        width: 100vw; height: 100vh;
+        background-image: url(img/mapa.jpg);
+        background-size: contain;
+    }
+
+    #nave {
+        position: absolute;
+        width: 100px; height: 100px;
+        background-image: url('img/mininave.png');
+        background-size: contain;
+        background-position: center;
+        left: 800px; top: 500px;
+        transition: all 0.4s linear;
+    }
+
+    button { margin: 5px; padding: 10px; font-size: 16px; }
+</style>
+</head>
+<body>
+
+<button id="btnArriba">Arriba</button>
+<button id="btnAbajo">Abajo</button>
+<button id="btnIzquierda">Izquierda</button>
+<button id="btnDerecha">Derecha</button>
+<button id="btnReset">Reset</button>
+
+<div id="nave"></div>
+
+<script>
+    let nave = document.getElementById("nave");
+    let b1 = document.getElementById("btnArriba");
+    let b2 = document.getElementById("btnAbajo");
+    let b3 = document.getElementById("btnIzquierda");
+    let b4 = document.getElementById("btnDerecha");
+    let b5 = document.getElementById("btnReset");
+
+    function moverArriba() { nave.style.top = "300px"; }
+    function moverAbajo() { nave.style.top = "500px"; }
+    function moverIzquierda() { nave.style.left = "150px"; }
+    function moverDerecha() { nave.style.left = "1200px"; }
+    function volver() { nave.style.top = "500px"; nave.style.left = "800px"; }
+
+    b1.addEventListener("click", moverArriba);
+    b2.addEventListener("click", moverAbajo);
+    b3.addEventListener("click", moverIzquierda);
+    b4.addEventListener("click", moverDerecha);
+    b5.addEventListener("click", volver);
+</script>
+
+</body>
+</html>
