@@ -1,0 +1,13 @@
+#padre{
+    position:relative;
+    width: 1500px;
+    height: 400px;
+    background-color: #1e233d;
+    border: 5px solid #b9aac8;
+    border-radius: 12px;
+    margin-top: 30px
+}
+
+.pokemon{
+    background-color: #993232;
+}

@@ -4,6 +4,7 @@ const button = document.getElementById("boton");
 let numero = 5;
 let temporizador;
 
+
 button.addEventListener("click", empezar);
 
 function empezar() {
