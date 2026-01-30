@@ -1,60 +1,61 @@
-let campo = document.getElementById("nombre");
-let resultado = document.getElementById("resultado");
+// Captura de elementos del DOM
+let campo = document.getElementById("nombre")
+let resultado = document.getElementById("resultado")
+let btnPush = document.getElementById("btn-push")
+let btnPop = document.getElementById("btn-pop")
+let btnUnshift = document.getElementById("btn-unshift")
+let btnShift = document.getElementById("btn-shift")
+let btnSort = document.getElementById("btn-sort")
+let btnClear = document.getElementById("btn-clear")
 
-// Array principañ
-let personajes = ["Goku", "Vegeta", "Gohan"];
+let personajes = ["Goku", "Vegeta", "Gohan", "Piccolo", "Bulma"]
 
-// Imprimir lista
 function actualizar() {
-    resultado.innerHTML =
-        "Personajes: " + personajes.join(", ");
+    resultado.innerHTML = "Personajes: " + personajes.join(", ")
 }
 
-// Añadir al final
-function pushPersonaje() {
-    let nombre = campo.value;
-
+// Añade al final
+btnPush.onclick = function() {
+    let nombre = campo.value.trim()
     if (nombre != "") {
-        personajes.push(nombre);
-        actualizar();
-        campo.value = "";
+        personajes.push(nombre)
+        actualizar()
+        campo.value = ""
     }
 }
 
-// Eliminar último
-function popPersonaje() {
-    personajes.pop();
-    actualizar();
+// Elimina el último
+btnPop.onclick = function() {
+    personajes.pop()
+    actualizar()
 }
 
-// Añadir al inicio
-function unshiftPersonaje() {
-    let nombre = campo.value;
-
+// Añade al inicio
+btnUnshift.onclick = function() {
+    let nombre = campo.value.trim()
     if (nombre != "") {
-        personajes.unshift(nombre);
-        actualizar();
-        campo.value = "";
+        personajes.unshift(nombre)
+        actualizar()
+        campo.value = ""
     }
 }
 
-// Eliminar primero
-function shiftPersonaje() {
-    personajes.shift();
-    actualizar();
+// Elimina el primero
+btnShift.onclick = function() {
+    personajes.shift()
+    actualizar()
 }
 
-// Ordenar
-function ordenarPersonajes() {
-    personajes.sort();
-    actualizar();
+// Ordena alfabeticamente
+btnSort.onclick = function() {
+    personajes.sort()
+    actualizar()
 }
 
-// Limpiar lista
-function limpiarPersonajes() {
-    personajes = [];
-    actualizar();
+// limpia cadena
+btnClear.onclick = function() {
+    personajes = []
+    actualizar()
 }
 
-// Mostrar al cargar
-actualizar();
+actualizar()
