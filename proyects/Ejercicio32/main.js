@@ -30,7 +30,7 @@ btnPop.onclick = function() {
     actualizar()
 }
 
-// Añade al inicio
+// Añade a  l inicio
 btnUnshift.onclick = function() {
     let nombre = campo.value.trim()
     if (nombre != "") {
