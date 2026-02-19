@@ -1,0 +1,36 @@
+/* PRIORIDADES */
+.alta {
+    background: #ffd6d6;
+    border: 2px solid #d60000;
+}
+
+.media {
+    background: #fff4cc;
+    border: 2px solid #e0a800;
+}
+
+.baja {
+    background: #d6f5d6;
+    border: 2px solid #28a745;
+}
+.alta input[value="Completar"] {
+    background: #ff9999;
+    border: 1px solid #d60000;
+}
+
+.media input[value="Completar"] {
+    background: #ffe699;
+    border: 1px solid #e0a800;
+}
+
+.baja input[value="Completar"] {
+    background: #a8e6a3;
+    border: 1px solid #28a745;
+}
+
+/* BOTÓN ELIMINAR (siempre rojo) */
+input[value="Eliminar"] {
+    background: #ff4d4d;
+    border: 1px solid #b30000;
+    color: white;
+}
