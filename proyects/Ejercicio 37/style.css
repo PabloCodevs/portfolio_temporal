@@ -1,0 +1,61 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-image: url('fondoo.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#tablero {
+    width: 900px;
+    height: 450px;
+    background-color: rgba(0, 0, 0, 0.8); 
+    border: 4px solid #cc0000;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+.jugador {
+    width: 220px;
+    text-align: center;
+}
+
+h2 {
+    color: #cc0000;
+    text-transform: uppercase;
+}
+
+.centro {
+    text-align: center;
+}
+
+button {
+    background-color: #cc0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-family: inherit;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #ff0000;
+}
+
+.carta {
+    border: 2px solid white;
+    padding: 8px;
+    margin-top: 10px;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+    font-size: 14px;
+}
