@@ -8,6 +8,19 @@
     <title>To Do List</title>
 </head>
 <body>
-    <div id="padre"></div>
+    <div class="contenedor">
+        <h1>Mi Lista de Tareas</h1>
+        
+        <div class="formulario">
+            <input type="text" id="inputNombre" placeholder="Nombre de la tarea">
+            <input type="text" id="inputDescripcion" placeholder="Descripción">
+            <input type="date" id="inputFecha">
+            <button id="btnCrear">Crear tarea</button>
+        </div>
+        
+        <button id="btnEliminarTodas" class="btn-eliminar-todas">Eliminar todas</button>
+        
+        <div id="listaTareas" class="lista"></div>
+    </div>
 </body>
 </html>

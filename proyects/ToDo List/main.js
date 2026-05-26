@@ -1,115 +1,117 @@
-let padre = document.getElementById("padre");
+// FASE 3: TODO LIST
 
-// Formulario
-let formulario = document.createElement("div");
+let listaTareas = document.getElementById("listaTareas");
+let inputNombre = document.getElementById("inputNombre");
+let inputDescripcion = document.getElementById("inputDescripcion");
+let inputFecha = document.getElementById("inputFecha");
+let btnCrear = document.getElementById("btnCrear");
+let btnEliminarTodas = document.getElementById("btnEliminarTodas");
 
-let inputNombre = document.createElement("input");
-inputNombre.setAttribute("type", "text");
-inputNombre.setAttribute("placeholder", "Nombre de la tarea");
+// Array para guardar las tareas
+let tareas = [];
 
-let inputDescripcion = document.createElement("input");
-inputDescripcion.setAttribute("type", "text");
-inputDescripcion.setAttribute("placeholder", "Descripción");
-
-let inputFecha = document.createElement("input");
-inputFecha.setAttribute("type", "date");
-
-let selectPrioridad = document.createElement("select");
-
-let alta = document.createElement("option");
-alta.value = "alta";
-alta.innerHTML = "Alta";
-
-let media = document.createElement("option");
-media.value = "media";
-media.innerHTML = "Media";
-
-let baja = document.createElement("option");
-baja.value = "baja";
-baja.innerHTML = "Baja";
-
-selectPrioridad.appendChild(alta);
-selectPrioridad.appendChild(media);
-selectPrioridad.appendChild(baja);
-
-let btnCrear = document.createElement("input");
-btnCrear.setAttribute("type", "button");
-btnCrear.setAttribute("value", "Crear tarea");
-
-
-formulario.appendChild(inputNombre);
-formulario.appendChild(inputDescripcion);
-formulario.appendChild(inputFecha);
-formulario.appendChild(selectPrioridad);
-formulario.appendChild(btnCrear);
-
-padre.appendChild(formulario);
-
-// Eliminar todas las tareas
-let btnEliminarTodo = document.createElement("input");
-btnEliminarTodo.type = "button";
-btnEliminarTodo.value = "Eliminar todas";
-
-padre.appendChild(btnEliminarTodo);
-
-// Lista
-let listaTareas = document.createElement("div");
-padre.appendChild(listaTareas);
-
-// Funcionamiento
-btnCrear.onclick = function () {
-  let tarea = document.createElement("div");
-
-  tarea.classList.add(selectPrioridad.value);
-
-  let nombre = document.createElement("div");
-  nombre.innerHTML = "Tarea: " + inputNombre.value;
-
-  let descripcion = document.createElement("div");
-  descripcion.innerHTML = "Descripción: " + inputDescripcion.value;
-
-  let fecha = document.createElement("div");
-  fecha.innerHTML = "Fecha: " + inputFecha.value;
-
-  let prioridadTexto = document.createElement("div");
-  prioridadTexto.innerHTML = "Prioridad: " + selectPrioridad.value;
-
-  let estado = document.createElement("div");
-  estado.innerHTML = "Estado: Por completasr";
-
-  let btnCompletar = document.createElement("input");
-  btnCompletar.type = "button";
-  btnCompletar.value = "Completar";
-
-  let btnEliminar = document.createElement("input");
-  btnEliminar.type = "button";
-  btnEliminar.value = "Eliminar";
-
-  btnCompletar.onclick = function () {
-    nombre.style.textDecoration = "line-through";
-    descripcion.style.textDecoration = "line-through";
-    estado.innerHTML = "Estado: completada";
-  };
-
-  btnEliminar.onclick = function () {
-    listaTareas.removeChild(tarea);
-  };
-
-  tarea.appendChild(nombre);
-  tarea.appendChild(descripcion);
-  tarea.appendChild(fecha);
-  tarea.appendChild(prioridadTexto);
-  tarea.appendChild(estado);
-  tarea.appendChild(btnCompletar);
-  tarea.appendChild(btnEliminar);
-
-  listaTareas.appendChild(tarea);
-
-  inputNombre.value = "";
-  inputDescripcion.value = "";
-  inputFecha.value = "";
+// Función para crear una tarea
+btnCrear.onclick = function() {
+    // Validar que no estén vacíos
+    if (inputNombre.value === "" || inputDescripcion.value === "" || inputFecha.value === "") {
+        alert("Por favor, completa todos los campos");
+        return;
+    }
+    
+    // Crear objeto tarea
+    let tarea = {
+        id: Math.random(),
+        nombre: inputNombre.value,
+        descripcion: inputDescripcion.value,
+        fecha: inputFecha.value,
+        completada: false
+    };
+    
+    // Añadir a array
+    tareas.push(tarea);
+    
+    // Limpiar inputs
+    inputNombre.value = "";
+    inputDescripcion.value = "";
+    inputFecha.value = "";
+    
+    // Mostrar la tarea
+    mostrarTareas();
 };
 
-btnEliminarTodo.onclick = function () {
-  listaTareas.innerHTML = "";
+// Función para mostrar todas las tareas
+function mostrarTareas() {
+    listaTareas.innerHTML = "";
+    
+    tareas.forEach(function(tarea) {
+        // Crear contenedor de la tarea
+        let divTarea = document.createElement("div");
+        divTarea.classList.add("tarea");
+        
+        if (tarea.completada) {
+            divTarea.classList.add("completada");
+        }
+        
+        // Nombre de la tarea
+        let nombre = document.createElement("div");
+        nombre.classList.add("nombre-tarea");
+        nombre.innerHTML = tarea.nombre;
+        
+        // Descripción
+        let descripcion = document.createElement("div");
+        descripcion.classList.add("descripcion-tarea");
+        descripcion.innerHTML = "Descripción: " + tarea.descripcion;
+        
+        // Fecha
+        let fecha = document.createElement("div");
+        fecha.classList.add("fecha-tarea");
+        fecha.innerHTML = "Fecha: " + tarea.fecha;
+        
+        // Botón Completar
+        let btnCompletar = document.createElement("button");
+        btnCompletar.innerHTML = "Completar";
+        btnCompletar.classList.add("btn-completar");
+        
+        btnCompletar.onclick = function() {
+            tarea.completada = !tarea.completada;
+            mostrarTareas();
+        };
+        
+        // Botón Eliminar
+        let btnEliminar = document.createElement("button");
+        btnEliminar.innerHTML = "Eliminar";
+        btnEliminar.classList.add("btn-eliminar");
+        
+        btnEliminar.onclick = function() {
+            // Buscar el índice de la tarea
+            let indice = tareas.indexOf(tarea);
+            if (indice > -1) {
+                tareas.splice(indice, 1);
+            }
+            mostrarTareas();
+        };
+        
+        // Añadir elementos a la tarea
+        divTarea.appendChild(nombre);
+        divTarea.appendChild(descripcion);
+        divTarea.appendChild(fecha);
+        divTarea.appendChild(btnCompletar);
+        divTarea.appendChild(btnEliminar);
+        
+        // Añadir tarea a la lista
+        listaTareas.appendChild(divTarea);
+    });
+}
+
+// Función para eliminar todas las tareas
+btnEliminarTodas.onclick = function() {
+    if (tareas.length === 0) {
+        alert("No hay tareas para eliminar");
+        return;
+    }
+    
+    if (confirm("¿Estás seguro de que quieres eliminar todas las tareas?")) {
+        tareas = [];
+        mostrarTareas();
+    }
 };
