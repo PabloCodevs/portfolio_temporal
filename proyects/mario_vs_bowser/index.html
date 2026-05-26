@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario vs Bowser</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+
+    <div class="contenedor">
+
+        <h1>Mario vs Bowser</h1>
+
+        <div class="juego">
+            <div id="mario-char" class="personaje mario"></div>
+            <div id="enemigo1-char" class="personaje enemigo"></div>
+        </div>
+
+        <div class="stats">
+
+            <div class="stat-box">
+                <h3>Mario</h3>
+                <p>Vida: <span id="mario-vida">100</span></p>
+                <p>Posicion: <span id="mario-pos">0</span></p>
+            </div>
+
+            <div class="stat-box">
+                <h3>Bowser</h3>
+                <p>Vida: <span id="enemigo1-vida">80</span></p>
+                <p>Posicion: <span id="enemigo1-pos">400</span></p>
+            </div>
+
+        </div>
+
+        <div class="controles">
+            <p>Controles:</p>
+            <p>Flechas para mover | Espacio para atacar</p>
+        </div>
+
+        <div id="log" class="log"></div>
+
+    </div>
+
+</body>
+</html>
